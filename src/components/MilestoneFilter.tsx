@@ -19,7 +19,18 @@ const MilestoneFilter = () => {
   console.log("milestones", milestones);
 
   // todo - render milestones
-  return <GithubFilter />;
+  return (
+    <GithubFilter
+      name="Milestones"
+      title="Filter by milestones"
+      placeholder="milestones"
+      data={milestones}
+      renderData={(milestone) => milestone.title}
+      filterFn={(milestone, query) =>
+        milestone.title.match(new RegExp(query, "i"))
+      }
+    />
+  );
 };
 
 export default MilestoneFilter;
